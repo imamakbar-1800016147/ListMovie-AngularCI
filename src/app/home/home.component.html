@@ -1,0 +1,33 @@
+<mat-toolbar color="dark">
+  <span>MOVIE MANIA</span>
+  <span class="spacer"></span>
+  <button mat-raised-button color="warn" class="logout" routerLink="/login">Logout</button>
+</mat-toolbar>
+<div style=" padding:px">
+  <div class="container">
+    <button class="btn-tambah" mat-raised-button color="light" (click)="buat()">Tambah Film</button>
+    <mat-card style="width: 100%;">
+      <mat-card-header>
+        <mat-card-title>Daftar Film</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <img src="assets/imam.png" width="945px" height="210px">
+        <mat-list>
+          <mat-list-item *ngFor="let item of dataFilm" class="posisi1">
+            <span matListAvatar class="posisi">
+              <img style="height: 50px;" src="/assets/1.jpg" alt="">
+            </span>
+            <h3 matLine><b>{{item.judul_film}}</b></h3>
+            <p matLine>
+              <span> Genre : {{item.genre}} </span>
+            </p>
+            <p matLine>
+              <span>Tahun : {{item.tahun}}</span>
+            </p>
+            <button class="btn-edit" mat-stroked-button color="dark" (click)="edit(item)">Edit</button>
+            <button class="btn-delete" mat-stroked-button color="light" (click)="hapus(item.id)">Hapus</button>
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  </div>
